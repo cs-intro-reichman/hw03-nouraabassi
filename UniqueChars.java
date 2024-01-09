@@ -29,7 +29,7 @@ public class UniqueChars {
             }
         }
 
-        System.out.println("Original String: " + str);
+       // System.out.println("Original String: " + str);
         System.out.println(result.toString());
     }
 
