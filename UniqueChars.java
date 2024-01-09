@@ -18,27 +18,24 @@
 
 public class UniqueChars {
     public static void main(String[] args) {
-        String str = args[0];
+      /*  if (args.length == 0) {
+            System.out.println("Please provide a string argument.");
+            return;
+        }*/
 
+        String str = args[0];
         StringBuilder result = new StringBuilder();
+
         for (int i = 0; i < str.length(); i++) {
             char currentChar = str.charAt(i);
 
-            if (currentChar == ' ' || !isDuplicate(str, currentChar, i)) {
+            // Check if the character is a space or a non-duplicate character
+            if (currentChar == ' ' || str.indexOf(currentChar, i + 1) == -1) {
                 result.append(currentChar);
             }
         }
 
        // System.out.println("Original String: " + str);
-        System.out.println(result.toString());
-    }
-
-    private static boolean isDuplicate(String str, char currentChar, int currentIndex) {
-        for (int i = 0; i < str.length(); i++) {
-            if (i != currentIndex && str.charAt(i) == currentChar && currentChar != ' ') {
-                return true;
-            }
-        }
-        return false;
+        System.out.println(/*"Modified String: " +*/ result.toString());
     }
 }
