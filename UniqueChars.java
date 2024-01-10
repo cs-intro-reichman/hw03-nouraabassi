@@ -39,21 +39,34 @@
         System.out.println(/*"Modified String: " +*/ result.toString());
    // }
 //}
+/** String processing exercise 2. */
 public class UniqueChars {
-
-    public static void main(String[] args) {
+    public static void main(String[] args) {  
         String str = args[0];
         System.out.println(uniqueChars(str));
     }
 
-    public static String uniqueChars(String s) {
-        String result = "";
-        for (int i = 0; i < s.length(); i++) {
-            char currentChar = s.charAt(i);
-            if (result.indexOf(currentChar) == -1 || currentChar == ' ') {
-                result += currentChar;
-            }
-        }
-        return result;
-    }
+    /**
+     * Returns a string which is identical to the original string, 
+     * except that all the duplicate characters are removed,
+     * unless they are space characters.
+     */
+	 
+public static String uniqueChars(String str) {
+        String fin = "";
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+			boolean duplicate = false;
+			for (int j = 0; j < fin.length(); j++) {
+				if (fin.charAt(j) == ch) {
+					duplicate = true;
+					break;
+				}		
+			}
+			if (!duplicate || ch == ' ') {
+				fin += ch;
+			}
+		}
+		return fin;
+	}
 }
