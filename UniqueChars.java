@@ -40,27 +40,20 @@
    // }
 //}
 public class UniqueChars {
+
     public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Please provide a string argument.");
-            return;
-        }
-
         String str = args[0];
-        StringBuilder result = new StringBuilder();
+        System.out.println(uniqueChars(str));
+    }
 
-        for (int i = 0; i < str.length(); i++) {
-            char currentChar = str.charAt(i);
-
-            if (currentChar == ' ' || i == str.lastIndexOf(currentChar)) {
-                result.append(currentChar);
+    public static String uniqueChars(String s) {
+        String result = "";
+        for (int i = 0; i < s.length(); i++) {
+            char currentChar = s.charAt(i);
+            if (result.indexOf(currentChar) == -1 || currentChar == ' ') {
+                result += currentChar;
             }
         }
-
-        System.out.println(result.toString());
-    }
-}
-
-        System.out.println(result.toString());
+        return result;
     }
 }
